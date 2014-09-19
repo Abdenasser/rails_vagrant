@@ -9,6 +9,7 @@ sudo apt-get install -y nodejs
 sudo apt-get install -y imagemagick
 sudo apt-get install -y libsqlite3-dev
 sudo apt-get install -y sqlite3
+sudo apt-get install -y build-essential
 
 ## Install rbenv and rbenv-build to manage ruby environment
 su - vagrant -c "git clone https://github.com/sstephenson/rbenv.git ~/.rbenv"
