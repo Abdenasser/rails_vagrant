@@ -8,10 +8,14 @@ sudo apt-get update
 sudo apt-get install -y git
 sudo apt-get install -y nodejs
 sudo apt-get install -y imagemagick
-sudo apt-get install -y libsqlite3-dev
-sudo apt-get install -y sqlite3
 sudo apt-get install -y build-essential
 sudo apt-get install -y libffi-dev
+sudo apt-get install -y libmysqlclient-dev
+sudo apt-get install -y debconf-utils
+sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password MySuperPassword'
+sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password MySuperPassword'
+sudo apt-get install -y mysql-server
+
 
 ## Install rbenv and rbenv-build to manage ruby environment
 su - vagrant -c "git clone https://github.com/sstephenson/rbenv.git ~/.rbenv"
@@ -30,4 +34,4 @@ su - vagrant -c "rbenv rehash"
 
 ## Setup new app
 su - vagrant -c "mkdir -p /vagrant/$RAILS_APP"
-su - vagrant -c "rails new /vagrant/$RAILS_APP"
+su - vagrant -c "rails new /vagrant/$RAILS_APP -d mysql"
