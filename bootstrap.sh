@@ -16,7 +16,6 @@ sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password passwor
 sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password MySuperPassword'
 sudo apt-get install -y mysql-server
 
-
 ## Install rbenv and rbenv-build to manage ruby environment
 su - vagrant -c "git clone https://github.com/sstephenson/rbenv.git ~/.rbenv"
 su - vagrant -c "echo 'export PATH=\"~/.rbenv/bin:$PATH\"' >> ~/.bash_profile"
